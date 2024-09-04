@@ -30,7 +30,7 @@
 
         <!-- Scala -->
         <dependency>
-            <groupId>org.jooq.trial</groupId>
+            <groupId>org.jooq</groupId>
             <artifactId>jooq-scala_2.13</artifactId>
         </dependency>
         <dependency>
@@ -121,7 +121,7 @@
             </plugin>
 
             <plugin>
-                <groupId>org.jooq.trial</groupId>
+                <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
 
                 <!-- More shared defaults are defined in the parent pom.xml -->
@@ -214,7 +214,7 @@
 
                     <!-- This is needed for the DDLDatabase -->
                     <dependency>
-                        <groupId>org.jooq.trial</groupId>
+                        <groupId>org.jooq</groupId>
                         <artifactId>jooq-meta-extensions</artifactId>
                         <version>${jooq.version}</version>
                     </dependency>
