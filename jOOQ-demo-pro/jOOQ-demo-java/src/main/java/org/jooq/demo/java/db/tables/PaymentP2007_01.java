@@ -155,7 +155,7 @@ public class PaymentP2007_01 extends TableImpl<PaymentP2007_01Record> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

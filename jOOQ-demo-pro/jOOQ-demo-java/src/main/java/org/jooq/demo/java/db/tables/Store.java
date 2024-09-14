@@ -149,7 +149,7 @@ public class Store extends TableImpl<StoreRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

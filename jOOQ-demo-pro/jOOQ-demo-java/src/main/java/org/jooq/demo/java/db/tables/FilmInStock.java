@@ -82,7 +82,7 @@ public class FilmInStock extends TableImpl<FilmInStockRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

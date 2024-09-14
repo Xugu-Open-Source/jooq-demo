@@ -20,13 +20,27 @@
             <artifactId>jooq-demo-utils</artifactId>
         </dependency>
 
-        <!-- Testing -->
+<!--        &lt;!&ndash; Testing &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--&lt;!&ndash;            <type>jar</type>&ndash;&gt;-->
+<!--&lt;!&ndash;            <scope>test</scope>&ndash;&gt;-->
+<!--            <version>4.12</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <type>jar</type>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.11.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>xugudb</artifactId>
+            <version>1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

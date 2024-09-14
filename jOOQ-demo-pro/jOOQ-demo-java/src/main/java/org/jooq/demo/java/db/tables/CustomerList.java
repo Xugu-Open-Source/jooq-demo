@@ -139,7 +139,7 @@ public class CustomerList extends TableImpl<CustomerListRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

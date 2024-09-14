@@ -143,7 +143,7 @@ public class Inventory extends TableImpl<InventoryRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

@@ -29,7 +29,7 @@ import org.jooq.demo.java.db.tables.records.FilmNotInStockRecord;
 /**
  * Convenience access to all stored procedures and functions in public.
  */
-@SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
+@SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Routines {
 
     /**

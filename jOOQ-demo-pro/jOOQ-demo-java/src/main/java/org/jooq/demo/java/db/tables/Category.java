@@ -133,7 +133,7 @@ public class Category extends TableImpl<CategoryRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

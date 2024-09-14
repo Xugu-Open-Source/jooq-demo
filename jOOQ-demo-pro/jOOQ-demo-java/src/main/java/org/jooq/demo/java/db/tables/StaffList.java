@@ -130,7 +130,7 @@ public class StaffList extends TableImpl<StaffListRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

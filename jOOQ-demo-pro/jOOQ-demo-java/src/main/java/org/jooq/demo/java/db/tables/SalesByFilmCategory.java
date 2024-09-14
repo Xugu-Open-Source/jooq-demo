@@ -101,7 +101,7 @@ public class SalesByFilmCategory extends TableImpl<SalesByFilmCategoryRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

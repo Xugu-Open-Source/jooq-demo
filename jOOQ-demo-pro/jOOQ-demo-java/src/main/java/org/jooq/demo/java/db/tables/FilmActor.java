@@ -136,7 +136,7 @@ public class FilmActor extends TableImpl<FilmActorRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

@@ -17,16 +17,17 @@
         <!-- Database access -->
         <dependency>
             <groupId>org.jooq</groupId>
+            <version>3.15.12</version>
             <artifactId>jooq</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>r2dbc-postgresql</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.postgresql</groupId>-->
+<!--            <artifactId>r2dbc-postgresql</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>

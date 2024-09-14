@@ -112,7 +112,7 @@ public class ActorInfo extends TableImpl<ActorInfoRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

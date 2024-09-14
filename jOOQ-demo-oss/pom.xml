@@ -190,7 +190,7 @@
                                     db = new org.testcontainers.containers.PostgreSQLContainer("postgres:latest")
                                             .withUsername("${db.username}")
                                             .withDatabaseName("postgres")
-                                            .withPassword("${db.password}")
+                                            .withPassword("SYSDBA")
 
                                     db.start()
                                     project.properties.setProperty('db.url', db.getJdbcUrl())
@@ -244,9 +244,9 @@
 
                     <configuration>
                         <!-- This URL is exported by testcontainers above -->
-                        <url>${db.url}</url>
-                        <user>${db.username}</user>
-                        <password>${db.password}</password>
+                        <url>jdbc:xugu://127.0.0.1:5138/school?current_schema=test</url>
+                        <user>SYSDBA</user>
+                        <password>SYSDBA</password>
                         <locations>
                             <location>filesystem:../../sakila/postgres</location>
                         </locations>
@@ -262,14 +262,15 @@
                     <configuration>
                         <onUnused>SILENT</onUnused>
                         <jdbc>
-                            <driver>org.postgresql.Driver</driver>
+                            <driver>com.xugu.cloudjdbc.Driver</driver>
                             <!-- This URL is exported by testcontainers above -->
-                            <url>${db.url}</url>
-                            <user>${db.username}</user>
-                            <password>${db.password}</password>
+                            <url>jdbc:xugu://127.0.0.1:5138/school?current_schema=test</url>
+                            <user>SYSDBA</user>
+                            <password>SYSDBA</password>
                         </jdbc>
                         <generator>
                             <database>
+                                <name>org.jooq.meta.xugu.XuGuDatabase</name>
                                 <inputSchema>public</inputSchema>
                                 <excludes>flyway_.*</excludes>
 

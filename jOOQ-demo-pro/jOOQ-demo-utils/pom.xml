@@ -17,6 +17,7 @@
         <!-- Database access -->
         <dependency>
             <groupId>org.jooq</groupId>
+            <version>3.15.12</version>
             <artifactId>jooq</artifactId>
         </dependency>
         <dependency>

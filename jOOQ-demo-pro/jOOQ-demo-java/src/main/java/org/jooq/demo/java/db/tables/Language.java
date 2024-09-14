@@ -132,7 +132,7 @@ public class Language extends TableImpl<LanguageRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : Public.PUBLIC;
+        return aliased() ? null : Test.TEST;
     }
 
     @Override

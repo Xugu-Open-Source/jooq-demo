@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq-demo</artifactId>
+        <version>3.19.11</version>
+    </parent>
+
+    <groupId>org.testcontainers</groupId>
+    <artifactId>xugudb</artifactId>
+    <version>1</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>jdbc</artifactId>
+            <version>1.16.3</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.16.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-demo-utils</artifactId>
+            <version>3.19.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xugudb</groupId>
+            <artifactId>xugu-jdbc</artifactId>
+            <version>12.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>0-SNAPSHOT-xugu</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+<!--            <type>jar</type>-->
+            <scope>compile</scope>
+            <version>4.13.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.gmaven</groupId>
+                    <artifactId>groovy-maven-plugin</artifactId>
+                    <version>2.1.1</version>
+                    <executions>
+                        <execution>
+
+                            <!-- Start testcontainers before code generation -->
+                            <id>testcontainers-start</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>execute</goal>
+                            </goals>
+                            <configuration>
+                                <source>
+                                    db = new org.testcontainers.containers.XuguDBContainer("xugu:xugu")
+//                                            .withUsername("${db.username}")
+//                                            .withDatabaseName("postgres")
+//                                            .withPassword("${db.password}")
+
+                                    db.start()
+                                    project.properties.setProperty('db.url', db.getJdbcUrl())
+                                    project.properties.setProperty('testcontainers.containerId', db.getContainerId());
+                                    project.properties.setProperty('testcontainers.imageName', db.getDockerImageName());
+                                </source>
+                            </configuration>
+                        </execution>
+<!--                        <execution>-->
+
+<!--                            &lt;!&ndash; Stop testcontainers after tests have completed &ndash;&gt;-->
+<!--                            <id>testcontainers-stop</id>-->
+<!--                            <phase>post-integration-test</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>execute</goal>-->
+<!--                            </goals>-->
+<!--                            <configuration>-->
+<!--                                <source>-->
+<!--                                    containerId = "${testcontainers.containerId}"-->
+<!--                                    imageName = "${testcontainers.imageName}"-->
+<!--                                    println("Stopping testcontainer $containerId - $imageName")-->
+<!--                                    org.testcontainers.utility.ResourceReaper-->
+<!--                                            .instance()-->
+<!--                                            .stopAndRemoveContainer(containerId, imageName);-->
+<!--                                </source>-->
+<!--                            </configuration>-->
+<!--                        </execution>-->
+                    </executions>
+
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>org.testcontainers</groupId>-->
+<!--                            <artifactId>postgresql</artifactId>-->
+<!--                            <version>1.16.3</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+<!--                    <release>17</release>-->
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
